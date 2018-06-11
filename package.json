@@ -1,0 +1,24 @@
+{
+  "name": "pdf-viewer",
+  "version": "1.0.0",
+  "description": "PDF Viewer with Angular 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiteshwarn/PDF-Viewer-with-Angular1.git"
+  },
+  "author": "jiteshwar nishad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jiteshwarn/PDF-Viewer-with-Angular1/issues"
+  },
+  "homepage": "https://github.com/jiteshwarn/PDF-Viewer-with-Angular1#readme",
+  "dependencies": {
+    "angular": "^1.7.1",
+    "pdfjs-dist": "2.0.489",
+    "jquery": "2.2.4"
+  }
+}
