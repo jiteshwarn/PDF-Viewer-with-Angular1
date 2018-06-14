@@ -18,7 +18,6 @@
   "homepage": "https://github.com/jiteshwarn/PDF-Viewer-with-Angular1#readme",
   "dependencies": {
     "angular": "^1.7.1",
-    "pdfjs-dist": "2.0.489",
-    "jquery": "2.2.4"
+    "pdfjs-dist": "2.0.489"
   }
 }
