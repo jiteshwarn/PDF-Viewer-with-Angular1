@@ -1,25 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html  data-ng-app="pdfviewerApp" ng-controller='CountCtrl as vm'>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>PDF Viewer</title>
+   <script  type="text/javascript" src="./node_modules/angular/angular.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.js"></script>
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="./node_modules/pdfjs-dist/web/pdf_viewer.css">
+
   <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
   <script src="./node_modules/pdfjs-dist/web/pdf_viewer.js"></script>
-</head>
-<body>
-  <div id="viewerContainer">
-    <div class="page-loading-container">
-      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-    </div>
-    <div id="viewer"></div>
-    <canvas id="the-canvas"></canvas>
-  </div>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
+</head>
+
+<body>
+  <section id="pdfSection" >
+    <div id="pdfHeader">
+      <div id="searchBar">
+        <input type="text" id="searchDocText" placeholder="Search Document" ng-model="vm.searchText" ng-keyup="vm.searchWord()" ng-focus="vm.searchOptions = true"
+        />
+        <button class="btn" id="searchDocButton" ng-click="vm.searchNextWord()">Search</button>
+        <div id="searchOptions" ng-show="vm.searchOptions">
+          <div>
+            <input type="checkbox" name="highlightAll" ng-model="vm.highlightAll" />
+            <label>Highlight All</label>
+          </div>
+          <div>
+            <input type="checkbox" name="caseSensitive" ng-model="vm.caseSensitive" />
+            <label>Case Sensitive</label>
+          </div>
+          <div>
+            <input type="checkbox" name="findPrevious" ng-model="vm.findPrevious" />
+            <label>Find Previous</label>
+          </div>
+          <button class="btn" id="close" ng-click="vm.searchOptions = false" title="close"> x </button>
+        </div>
+      </div>
+      <div class="page-navigate">
+        <div>
+          <button class="btn" id="prev" ng-click="vm.previousPage()" title="Previous Page"> < </button>
+          <button class="btn" id="next" ng-click="vm.nextPage()" title="Next Page"> > </button>
+        </div>
+        <div>
+          <span>Page: </span>
+          <input type="text" id="gotoPage" name="gotoPage" size="3" ng-model="vm.pageNumber" ng-keyup="vm.gotoPage()" />
+          <span id="page_count">{{" / " + vm.pageCount}}</span>
+
+        </div>
+      </div>
+      <div id="scaleBar">
+        <button class="btn" id="zoomOut" ng-click="vm.zoomOut()" title="Zoom Out"> - </button>
+        <button class="btn" id="zoomIn" ng-click="vm.zoomIn()" title="Zoom In"> + </button>
+        <button class="btn" id="scale" title="Scale" ng-click="vm.showScale = !vm.showScale">Scale
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </button>
+        <div id="scaleOptions" ng-show="vm.showScale">
+          <button class="btn" id="pageWidth" ng-click="vm.setScale('page-width')" title="Page Width">
+                    <i class="fa fa-text-width" aria-hidden="true"></i>
+                </button>
+          <button class="btn" id="pageHeight" ng-click="vm.setScale('page-height')" title="Page Height">
+                    <i class="fa fa-text-height" aria-hidden="true"></i>
+                </button>
+          <button class="btn" id="pageFit" ng-click="vm.setScale('page-fit')" title="Page Fit">
+                    <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                </button>
+          <button class="btn" id="pageActual" ng-click="vm.setScale('page-actual')" title="Page Actual">
+                    <i class="fa fa-arrows" aria-hidden="true"></i>
+                </button>
+          <button class="btn" id="auto" ng-click="vm.setScale('auto')" title="Auto">
+                    <i class="fa fa-adn" aria-hidden="true"></i>
+                </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="viewerContainer">
+      <div id="viewer"></div>
+      <canvas id="the-canvas"></canvas>
+    </div>
+  </section>
 </body>
 
 </html>

@@ -1,0 +1,137 @@
+ #pdfSection {
+  height: 100%;
+}
+#pdfHeader {
+  padding: 5px 10px 5px 10px;
+  border-bottom: 1px solid grey;
+  display: flex;
+}
+#pdfHeader button {
+  border: 1px solid black;
+  border-radius: 20px;
+}
+#pdfHeader button:hover {
+  border: 1px solid blue;
+}
+#pdfHeader button:active {
+  border: 1px solid blue;
+  font-weight: bold;
+}
+#pdfHeader input {
+  padding: 4px;
+  border: 1px solid black;
+}
+#pdfHeader input:focus {
+  border: 1px solid blue;
+}
+#searchBar {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+.page-navigate {
+  flex: 2;
+  justify-content: center;
+  display: flex;
+}
+#searchOptions {
+  position: absolute;
+  top: 57px;
+  z-index: 2;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 500px;
+  padding: 5px;
+  margin: 0px;
+  background-color: grey;
+  color: white;
+  text-align: left;
+}
+#searchOptions div {
+  display: inline-block;
+  width: 30%;
+}
+#searchOptions input {
+  margin: 0 1% 0 3%;
+  border: 1px solid black;
+}
+#searchOptions input:hover {
+  border: 1px solid blue;
+}
+#searchOptions label {
+  display: inline-block;
+  color: white;
+  margin: 0;
+}
+#searchOptions label:hover {
+  font-weight: bold;
+}
+#searchOptions button {
+  margin: 0 1% 0 3%;
+  border: none;
+  border-radius: 0;
+  background-color: grey;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#searchOptions button:hover {
+  border: none;
+  font-weight: bold;
+}
+#searchOptions button:active {
+  border: none;
+  font-weight: bold;
+}
+#scaleBar {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+#scaleOptions {
+  position: absolute;
+  top: 55px;
+  z-index: 2;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0px;
+  background-color: grey;
+  color: white;
+  width: 60px;
+}
+#scaleOptions button {
+  margin: 5px 2px 0 3px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+#scaleOptions button:hover {
+  border: 1px solid blue;
+}
+#scaleOptions button:active {
+  border: 1px solid blue;
+  font-weight: bold;
+}
+.textLayer .highlight {
+  margin: -1.5%;
+  padding: 1px;
+  background-color: #006400;
+  border-radius: 4px;
+}
+.textLayer .highlight.selected {
+  background-color: #006400;
+}
+#viewerContainer {
+  height: calc(100% - 50px);
+  overflow-y: auto;
+  width: 100%;
+  text-align: center;
+}
+#viewer {
+  position: relative;
+  left: 0;
+  top: 0;
+}
